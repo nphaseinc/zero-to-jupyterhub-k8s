@@ -3,7 +3,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: {{ include "jupyterhub.user-scheduler.fullname" . }}
+  name: {{ include "jupyterhub.user-scheduler.fullname" . }}{{ include "jupyterhub.user-scheduler-rbac-postfix.name" . }}
   labels:
     {{- include "jupyterhub.labels" . | nindent 4 }}
 rules:
@@ -218,7 +218,7 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: {{ include "jupyterhub.user-scheduler.fullname" . }}{{- if .Values.hub.extraEnv.ENV_NAME }}-{{ .Values.hub.extraEnv.ENV_NAME | lower | replace "_" "-" }}{{- end }}
+  name: {{ include "jupyterhub.user-scheduler.fullname" . }}{{ include "jupyterhub.user-scheduler-rbac-postfix.name" . }}
   labels:
     {{- include "jupyterhub.labels" . | nindent 4 }}
 subjects:
@@ -227,7 +227,7 @@ subjects:
     namespace: "{{ .Release.Namespace }}"
 roleRef:
   kind: ClusterRole
-  name: {{ include "jupyterhub.user-scheduler.fullname" . }}
+  name: {{ include "jupyterhub.user-scheduler.fullname" . }}{{ include "jupyterhub.user-scheduler-rbac-postfix.name" . }}
   apiGroup: rbac.authorization.k8s.io
 {{- end }}
 {{- end }}

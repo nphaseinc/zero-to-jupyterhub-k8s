@@ -266,7 +266,14 @@
     {{- end }}
 {{- end }}
 
-
+{{- /* user-scheduler-rbac-postfix name */}}
+{{- define "jupyterhub.user-scheduler-rbac-postfix.name" -}}
+    {{- if .Values.hub.extraEnv.ENV_NAME }}
+        {{- printf "-%s" (.Values.hub.extraEnv.ENV_NAME | lower | replace "_" "") }}
+    {{- else -}}
+        {{ "" }}
+    {{- end }}
+{{- end }}
 
 {{- /*
     A template to render all the named templates in this file for use in the
@@ -305,4 +312,5 @@ ingress: {{ include "jupyterhub.ingress.fullname" . | quote }}
 priority: {{ include "jupyterhub.priority.fullname" . | quote }}
 user-placeholder-priority: {{ include "jupyterhub.user-placeholder-priority.fullname" . | quote }}
 user-scheduler: {{ include "jupyterhub.user-scheduler.fullname" . | quote }}
+user-scheduler-rbac-postfix: {{ include "jupyterhub.user-scheduler-rbac-postfix.name" . | quote }}
 {{- end }}
