@@ -32,6 +32,7 @@ imagePullSecrets: []
 # the proxy pod.
 hub:
   externalSecret:
+    enabled: true
     name: jhub-secret
     vaultPath: kubernetes/pfe-sm-nv-eks/jhub-secret
   revisionHistoryLimit:
