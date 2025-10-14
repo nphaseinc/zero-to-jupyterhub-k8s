@@ -31,6 +31,9 @@ imagePullSecrets: []
 # ConfigurableHTTPProxy speaks with the actual ConfigurableHTTPProxy server in
 # the proxy pod.
 hub:
+  externalSecret:
+    name: jhub-secret
+    vaultPath: kubernetes/pfe-sm-nv-eks/jhub-secret
   revisionHistoryLimit:
   config:
     JupyterHub:
@@ -66,7 +69,7 @@ hub:
       annotations: {}
       selector: {}
       accessModes:
-        - ReadWriteOnce
+      - ReadWriteOnce
       storage: 1Gi
       subPath:
       storageClassName:
@@ -449,36 +452,36 @@ scheduling:
         # - NodeResourcesBalancedAllocation
         #
         disabled:
-          # We disable these plugins (with regards to scoring) to not interfere
-          # or complicate our use of NodeResourcesFit.
-          - name: NodeResourcesBalancedAllocation
-          # Disable plugins to be allowed to enable them again with a different
-          # weight and avoid an error.
-          - name: NodeAffinity
-          - name: InterPodAffinity
-          - name: NodeResourcesFit
-          - name: ImageLocality
+        # We disable these plugins (with regards to scoring) to not interfere
+        # or complicate our use of NodeResourcesFit.
+        - name: NodeResourcesBalancedAllocation
+        # Disable plugins to be allowed to enable them again with a different
+        # weight and avoid an error.
+        - name: NodeAffinity
+        - name: InterPodAffinity
+        - name: NodeResourcesFit
+        - name: ImageLocality
         enabled:
-          - name: NodeAffinity
-            weight: 14631
-          - name: InterPodAffinity
-            weight: 1331
-          - name: NodeResourcesFit
-            weight: 121
-          - name: ImageLocality
-            weight: 11
+        - name: NodeAffinity
+          weight: 14631
+        - name: InterPodAffinity
+          weight: 1331
+        - name: NodeResourcesFit
+          weight: 121
+        - name: ImageLocality
+          weight: 11
     pluginConfig:
-      # Here we declare that we should optimize pods to fit based on a
-      # MostAllocated strategy instead of the default LeastAllocated.
-      - name: NodeResourcesFit
-        args:
-          scoringStrategy:
-            resources:
-              - name: cpu
-                weight: 1
-              - name: memory
-                weight: 1
-            type: MostAllocated
+    # Here we declare that we should optimize pods to fit based on a
+    # MostAllocated strategy instead of the default LeastAllocated.
+    - name: NodeResourcesFit
+      args:
+        scoringStrategy:
+          resources:
+          - name: cpu
+            weight: 1
+          - name: memory
+            weight: 1
+          type: MostAllocated
     containerSecurityContext:
       runAsUser: 65534 # nobody user
       runAsGroup: 65534 # nobody group
@@ -565,26 +568,26 @@ scheduling:
     resources: {}
   corePods:
     tolerations:
-      - key: hub.jupyter.org/dedicated
-        operator: Equal
-        value: core
-        effect: NoSchedule
-      - key: hub.jupyter.org_dedicated
-        operator: Equal
-        value: core
-        effect: NoSchedule
+    - key: hub.jupyter.org/dedicated
+      operator: Equal
+      value: core
+      effect: NoSchedule
+    - key: hub.jupyter.org_dedicated
+      operator: Equal
+      value: core
+      effect: NoSchedule
     nodeAffinity:
       matchNodePurpose: prefer
   userPods:
     tolerations:
-      - key: hub.jupyter.org/dedicated
-        operator: Equal
-        value: user
-        effect: NoSchedule
-      - key: hub.jupyter.org_dedicated
-        operator: Equal
-        value: user
-        effect: NoSchedule
+    - key: hub.jupyter.org/dedicated
+      operator: Equal
+      value: user
+      effect: NoSchedule
+    - key: hub.jupyter.org_dedicated
+      operator: Equal
+      value: user
+      effect: NoSchedule
     nodeAffinity:
       matchNodePurpose: prefer
 
