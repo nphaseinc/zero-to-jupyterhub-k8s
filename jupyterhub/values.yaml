@@ -33,8 +33,9 @@ imagePullSecrets: []
 hub:
   externalSecret:
     enabled: true
-    name: jhub-secret
-    vaultPath: kubernetes/pfe-sm-nv-eks/jhub-secret
+    #name: jhub-secret
+    cryptSecretKey: JUPYTERHUB_CRYPT_KEY
+    vaultPath: kubernetes/pfe-sm-nv-eks/jhub-secret-qa
   revisionHistoryLimit:
   config:
     JupyterHub:
