@@ -35,6 +35,8 @@ hub:
     enabled: true
     name: jhub-secret
     vaultPath: kubernetes/pfe-sm-nv-eks/jhub-secret
+    secretKeys:
+    - JUPYTERHUB_CRYPT_KEY
   revisionHistoryLimit:
   config:
     JupyterHub:
