@@ -46,7 +46,7 @@ charset-normalizer==3.2.0
     # via requests
 comm==0.1.4
     # via ipykernel
-cryptography==41.0.3
+cryptography==46.0.0
     # via pyopenssl
 debugpy==1.6.7.post1
     # via ipykernel
@@ -221,7 +221,7 @@ pygments==2.16.1
     # via
     #   ipython
     #   nbconvert
-pyopenssl==23.2.0
+pyopenssl==26.0.0
     # via certipy
 python-dateutil==2.8.2
     # via
@@ -319,9 +319,10 @@ traitlets==5.9.0
     #   nbclient
     #   nbconvert
     #   nbformat
-typing-extensions==4.7.1
+typing-extensions==4.15.0
     # via
     #   alembic
+    #   pyopenssl
     #   sqlalchemy
 uri-template==1.3.0
     # via jsonschema
