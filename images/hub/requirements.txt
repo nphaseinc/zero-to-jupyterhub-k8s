@@ -23,6 +23,8 @@ bcrypt==4.0.1
     # via
     #   jupyterhub-firstuseauthenticator
     #   jupyterhub-nativeauthenticator
+cachetools==7.0.5
+    # via jupyterhub-ltiauthenticator
 certifi==2023.7.22
     # via
     #   kubernetes-asyncio
@@ -85,7 +87,7 @@ jupyterhub-kubespawner==6.0.0
     # via -r requirements.in
 jupyterhub-ldapauthenticator==1.3.2
     # via -r requirements.in
-jupyterhub-ltiauthenticator==1.6.1
+jupyterhub-ltiauthenticator==1.6.3
     # via -r requirements.in
 jupyterhub-nativeauthenticator==1.2.0
     # via -r requirements.in
