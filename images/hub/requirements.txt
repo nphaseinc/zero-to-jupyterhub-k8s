@@ -109,7 +109,7 @@ mwoauth==0.3.8
     # via -r requirements.in
 nullauthenticator==1.0.0
     # via -r requirements.in
-oauthenticator==16.0.7
+oauthenticator==17.4.0
     # via -r requirements.in
 oauthlib==3.2.2
     # via
@@ -138,6 +138,7 @@ pyjwt[crypto]==2.8.0
     #   -r requirements.in
     #   jupyterhub-ltiauthenticator
     #   mwoauth
+    #   oauthenticator
 pymysql==1.1.0
     # via -r requirements.in
 pyopenssl==23.2.0
