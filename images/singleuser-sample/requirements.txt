@@ -32,7 +32,7 @@ backcall==0.2.0
     # via ipython
 beautifulsoup4==4.12.2
     # via nbconvert
-bleach==6.0.0
+bleach[css]==6.0.0
     # via nbconvert
 certifi==2023.7.22
     # via requests
@@ -156,7 +156,7 @@ nbclassic==1.0.0
     # via -r requirements.in
 nbclient==0.8.0
     # via nbconvert
-nbconvert==7.7.4
+nbconvert==7.17.1
     # via
     #   jupyter-server
     #   nbclassic
@@ -290,8 +290,8 @@ terminado==0.17.1
     #   jupyter-server
     #   jupyter-server-terminals
     #   nbclassic
-tinycss2==1.2.1
-    # via nbconvert
+tinycss2==1.1.1
+    # via bleach
 tornado==6.3.3
     # via
     #   ipykernel
