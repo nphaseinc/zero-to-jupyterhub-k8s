@@ -115,11 +115,11 @@ jupyter-core==5.3.1
     #   nbclient
     #   nbconvert
     #   nbformat
-jupyter-events==0.7.0
+jupyter-events==0.12.1
     # via jupyter-server
 jupyter-lsp==2.2.0
     # via jupyterlab
-jupyter-server==2.7.2
+jupyter-server==2.20.0
     # via
     #   jupyter-lsp
     #   jupyterlab
@@ -183,6 +183,7 @@ overrides==7.4.0
 packaging==23.1
     # via
     #   ipykernel
+    #   jupyter-events
     #   jupyter-server
     #   jupyterhub
     #   jupyterlab
@@ -335,5 +336,5 @@ webencodings==0.5.1
     # via
     #   bleach
     #   tinycss2
-websocket-client==1.6.1
+websocket-client==1.9.0
     # via jupyter-server
